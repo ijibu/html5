@@ -1,0 +1,23 @@
+#################
+## Eclipse
+#################
+.project
+.metadata
+bin/
+tmp/
+email/
+cache/
+*.tmp
+*.bak
+*.swp
+.classpath
+.settings/
+.buildpath
+config.php
+test.php
+phpinfo.php
+*.log
+attachs
+attachs/
+avatar/
+index.php
