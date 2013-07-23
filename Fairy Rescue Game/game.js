@@ -2,18 +2,18 @@ var img;
 var imgFairy;
 var imgSpell;
 
-//EaselJS Stage instance that wraps the Canvas element
+//EaselJS Stage(舞台，画布) instance that wraps the Canvas element
 var stage;
-//EaselJS Shape instance that we will animate
+//EaselJS Shape(形状，塑造) instance that we will animate(动画效果)
 var circle;
 var newCircle;
 var newLine;
-//radius of the circle Graphics that we will draw.
+//radius(半径) of the circle Graphics(图像) that we will draw.
 var CIRCLE_RADIUS = 10;
 //x position that we will reset Shape to when it goes off
 //screen
 var circleXReset;
-//EaselJS Rectangle instance we will use to store the bounds
+//EaselJS Rectangle(矩形) instance we will use to store the bounds(边界)
 //of the Canvas
 var bounds;
 var bitmapFairy;
@@ -82,7 +82,7 @@ function unloadGameObjects() {
 
 }
 
-//function called by the Tick instance at a set interval
+//function called by the Tick(勾) instance at a set interval(间隔)
 function tick() {
 	if (titleIsOnFlag == true) {
 		stage.update();
@@ -179,7 +179,7 @@ function onMouseClick(e) {
 
 //called when the mouse is moved over the canvas
 function onMouseMove(e) {
-	//update the Mouse position coordinates
+	//update the Mouse position coordinates(坐标)
 	updateMouseCoordinates(e);
 }
 
@@ -216,12 +216,10 @@ function findNewPoint(m) {
 
 	myPoint.x = newXVal(50, newAng);
 	myPoint.y = newYVal(50, newAng);
-
-	//return(myPoint);
 }
 
 function findNewPointTake2(m) {
-	//create vectors
+	//create vectors(向量)
 	var endPoint = {
 		x : 639,
 		y : 479
@@ -240,7 +238,6 @@ function findNewPointTake2(m) {
 }
 
 function findNewAngle(m) {
-
 	var endPoint = {
 		x : 639,
 		y : 479
@@ -251,7 +248,6 @@ function findNewAngle(m) {
 	var angBetweenVec = angleBetweenVectors(vectorOne, vectorTwo);
 	angBetweenVec = (angBetweenVec * (180 / 3.14159));
 	return (angBetweenVec);
-
 }
 
 function findNewPointTake3(m) {
@@ -329,7 +325,6 @@ function angleBetweenVectors(aVector1, aVector2) {
 	modV2 = modulusOfVector(aVector2);
 
 	return Math.acos(((aVector1.x * aVector2.x) + (aVector1.y * aVector2.y)) / (modV1 * modV2));
-
 }
 
 function newXVal(r, ang) {
@@ -347,7 +342,6 @@ var bmpSeq; // The animated sparkle template to clone
 
 var imgBubbleBurstSeq = new Image(); // The image for the bubble burst
 var bmpBubbleBurstSeq; // The image for the bubble burst
-
 
 var imgEnemySeq = new Image();
 var bmpEnemySeq;
@@ -386,12 +380,9 @@ var prevSpell;
 var spawnSpellFlag = 1;
 var scoreLabel;
 var score;
-
 var healthLabel;
 var health;
-
 var magicPower;
-
 var titleIsOnFlag = true;
 var gameEndFlag = false;
 
@@ -420,11 +411,9 @@ function loadImages() {
 
 	imgSeq.onload = initParticles;
 	imgSeq.src = "images/sparkle_white.png";
-
 }
 
 ///////////////////////////////// Init Game ///////////////////////////
-
 function init() {
 	//check and see if the canvas element is supported in
 	//the current browser
@@ -471,7 +460,6 @@ function init() {
 	Ticker.setFPS(24);
 	Ticker.addListener(this);
 	Ticker.addListener(window);
-
 }
 
 function showLoading() {
@@ -501,12 +489,10 @@ function reStartGame() {
 	bmpPlayAgain.visible = false;
 
 	addAllBubbles();
-
 }
 
 function startGame() {
 	//clear title
-
 	//init
 	magicPower = 5;
 	health = 15;
@@ -539,14 +525,12 @@ function addPlayAgainButton() {
 }
 
 function checkPlayAgainClick(mousePoint) {
-
 	if ((mousePoint.x >= bmpPlayAgain.x && mousePoint.x < (bmpPlayAgain.x2)) &&
 		(mousePoint.y >= bmpPlayAgain.y && mousePoint.y < (bmpPlayAgain.y2))) {
 		return (true);
 	} else {
 		return (false);
 	}
-
 }
 
 var gameIsPausedFlag = false;
@@ -559,14 +543,12 @@ function pauseGame() {
 }
 
 function checkGamePauseClick(mousePoint) {
-
 	if ((mousePoint.x >= 594 && mousePoint.x < 627) &&
 		(mousePoint.y >= 12 && mousePoint.y < 43)) {
 		return (true);
 	} else {
 		return (false);
 	}
-
 }
 
 function resumeGame() {
@@ -668,14 +650,13 @@ function addLineWand() {
 	lineGraphics.lineTo(10,10);
 	newLine = new Shape(lineGraphics);
 	stage.addChild(newLine);*/
-
+	
 	bmpControlStick = new Bitmap(imgControlStick);
 	bmpControlStick.x = myOrigin.x;
 	bmpControlStick.y = myOrigin.y - 15;
 	bmpControlStick.regX = 0;
 	bmpControlStick.regY = 15 / 2;
 	stage.addChild(bmpControlStick);
-
 }
 
 function updateLineWand(aPoint) {
@@ -685,13 +666,11 @@ function updateLineWand(aPoint) {
 	lineGraphics.beginStroke(Graphics.getRGB(255, 255, 255, .7));
 	lineGraphics.moveTo(myOrigin.x, myOrigin.y);
 	lineGraphics.lineTo(aPoint.x, aPoint.y);
-
 }
 
 var CONTROL_STICK_WIDTH = 15;
 var CONTROL_STICK_HEIGHT = 46;
 function updateControlStick(aPoint) {
-
 	var newAng = findNewAngle(aPoint);
 
 	//alert("width " + bmpControlStick.width);
@@ -993,7 +972,6 @@ function updateBubbleBurst(aBubbleBurst, pid) {
 			removeBubbleBurst(pid);
 		}
 	}
-
 }
 
 function removeBubbleBurst(pid) {
@@ -1260,7 +1238,6 @@ function updateEnemy(anEnemyObj, pid) {
 		addEnemyShot(anEnemyObj.x, anEnemyObj.y);
 		lastEvilShotScore = score;
 	}
-
 }
 
 function destroyEnemy(enemyObj, pid) {
@@ -1286,7 +1263,6 @@ function initExplosion() {
 	//bmpExplosionSeq.wd = 35;
 	//bmpExplosionSeq.ht = 49;
 	bmpExplosionSeq.tickCount = 0;
-
 }
 
 function addExplosion(x, y) {
@@ -1307,7 +1283,6 @@ function updateExplosion(anExplosionObj, pid) {
 	if (anExplosionObj.tickCount > 4) {
 		removeExplosion(pid);
 	}
-
 }
 
 function removeExplosion(pid) {
@@ -1323,7 +1298,6 @@ function initParticles() {
 	bmpSeq = new BitmapSequence(new SpriteSheet(imgSeq, 21, 23));
 	bmpSeq.regX = bmpSeq.frameWidth / 2 | 0;
 	bmpSeq.regY = bmpSeq.frameHeight / 2 | 0;
-
 }
 
 function updateParticle(aParticle, pid) {
@@ -1400,6 +1374,6 @@ function initText() {
 
 function updateText() {
 	scoreLabel.text = "Score: " + score;
-	//healthLabel.text = "Health: " + health;
-	//magicText.text = "Magic: " + magicPower;
+	//healthLabel.text = "Health: " + health;		//健康值
+	//magicText.text = "Magic: " + magicPower;		//魔法值
 }
