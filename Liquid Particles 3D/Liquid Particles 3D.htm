@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://spielzeugz.de/html5/liquid-particles-3D/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+	<meta name="description" content="HTML5 Demo, particles trapped in a sphere.">
+	<meta name="keywords" content="html5,canvas,javascript,particles,interactive,programming,demo,experiment">
+	<title>Liquid Particles 3D | spielzeugz.de/lab </title>
+	<style>
+		*{ 
+			margin:0;
+			padding:0;
+		}
+		body{
+			background-color:#000000;
+			overflow:hidden;
+		}
+	</style>
+  <link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script></head>
+  <body screen_capture_injected="true">
+	<canvas id="mainCanvas" width="1366" height="607"></canvas>
+	<div id="output"></div>
+<script>
+(function(){function v(){g.globalCompositeOperation="source-over";g.fillStyle="rgba(8,8,12,"+u+")";g.fillRect(0,0,f,m);g.globalCompositeOperation="lighter";0.75>u&&(u+=0.05);C=r-w;D=s-x;w=r;x=s;for(var a=f/1.15,h=f/8,n=f/2,q=Math.random,E=Math.abs,v=Math.sqrt,z=Math.cos,A=Math.sin,B=Math.atan2,G=F;G--;){var d=H[G],j=d.x,e=d.y,c=d.vX,b=d.vY,p=j-r,k=e-s,l=v(p*p+k*k),k=B(k,p),p=z(k),k=A(k);if(y&&l<n)var t=14*(1-l/n),c=c+(p*t+0.5-q()),b=b+(k*t+0.5-q());l<a&&(t=0.0014*(1-l/a)*f,c-=p*t,b-=k*t);l<h&&(l=
+2.2E-4*(1-l/h)*f,c+=C*l,b+=D*l);c*=I;b*=I;E(c);E(b);j+=c;e+=b;j>f?j=0:0>j&&(j=f);e>m?e=0:0>e&&(e=m);d.vX=c;d.vY=b;d.x=j;d.y=e;c=d;b=2*j/f*Math.PI;e=e/m*Math.PI;b={theta:b,phi:e,x:-100*Math.sin(e)*Math.sin(b),y:-100*Math.cos(e),z:-100*Math.sin(e)*Math.cos(b)};c.pos3D=b;d.pos3D.z-=200;-300>d.pos3D.z||(c=300/(300+d.pos3D.z),b=d.pos3D.x*c+f/2,e=d.pos3D.y*c+m/2,g.fillStyle=d.color,g.beginPath(),g.arc(b,e,c,0,J,!0),g.closePath(),g.fill())}}function q(){f=document.documentElement.clientWidth;m=document.documentElement.clientHeight;
+n.width=f;n.height=m}function z(a){a=a?a:window.event;r=w=a.pageX;s=x=a.pageY;document.onmousemove=A}function A(a){a=a?a:window.event;r=a.pageX;s=a.pageY}function B(){y=!0;return!1}function K(){return y=!1}function L(){this.color="rgb("+Math.floor(255*Math.random())+","+Math.floor(255*Math.random())+","+Math.floor(255*Math.random())+")";this.size=this.vY=this.vX=this.x=this.y=0;this.pos3D={x:0,y:0,z:100}}var n,g,f=1E3,m=560,F=1750,H=[],I=0.96,J=2*Math.PI,u=0,r,s,C=0,D=0,w=0,x=0,y=!1;window.onload=
+function(){n=document.getElementById("mainCanvas");if(n.getContext){document.getElementById("outer");document.getElementById("canvasContainer");g=n.getContext("2d");window.moveTo(0,0);window.resizeTo(screen.width,screen.height);q(null);for(var a=F;a--;){var h=new L;h.x=0.5*f;h.y=0.5*m;h.vX=40*Math.cos(a)*Math.random();h.vY=20*Math.sin(a)*Math.random();h.size=2;H[a]=h}document.onmousedown=B;document.onmouseup=K;document.onmousemove=z;window.onresize=q;q(null);setInterval(v,33)}}})();
+</script>
+</body></html>
