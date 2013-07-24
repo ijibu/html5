@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<title>HTML5高级编程之图形扭曲及其应用</title>
+	</head>
+	<body>
+		<h4>1.scale(缩放)</h4>
+		<canvas id="myCanvas" width="800" height="230"></canvas>
+		<script type="text/javascript">
+			var c = document.getElementById('myCanvas');
+			var ctx = c.getContext('2d');
+			var img = new Image();
+			img.src = "./images/face.jpg";
+			img.onload = function(){
+				ctx.drawImage(img, 0, 0);
+				ctx.scale(0.5, 0.5);
+				ctx.drawImage(img, 500, 0);
+			};
+		</script>
+		<h4>2.rotate(旋转)</h4>
+		<canvas id="myCanvas1" width="800" height="400"></canvas>
+		<script type="text/javascript">
+			var c1 = document.getElementById('myCanvas1');
+			var ctx1 = c1.getContext('2d');
+			var img1 = new Image();
+			img1.src = "./images/face.jpg";
+			img1.onload = function(){
+				ctx1.rotate(20 * Math.PI/180);
+				ctx1.drawImage(img1, 200, 0);
+			};
+		</script>
+		<h4>3.translate(平移)</h4>
+		<canvas id="myCanvas2" width="800" height="400"></canvas>
+		<script type="text/javascript">
+			var c2 = document.getElementById('myCanvas2');
+			var ctx2 = c2.getContext('2d');
+			var img2 = new Image();
+			img2.src = "./images/face.jpg";
+			img2.onload = function(){
+				ctx2.drawImage(img2, 0, 0);
+				ctx2.translate(100, 100);
+				ctx2.drawImage(img2, 0, 0);
+			};
+		</script>
+		<h4>4.setTransform(倾斜)</h4>
+		<canvas id="myCanvas3" width="800" height="400"></canvas>
+		<script type="text/javascript">
+			var c3 = document.getElementById('myCanvas3');
+			var ctx3 = c3.getContext('2d');
+			var img3 = new Image();
+			img3.src = "./images/face.jpg";
+			img3.onload = function(){
+				ctx3.setTransform(1.3, 0.1, -0.2, 1, 80, 40);
+				ctx3.drawImage(img3, 0, 0);
+			};
+		</script>
+	</body>
+</html>
