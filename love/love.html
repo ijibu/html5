@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://love.hackerzhou.me/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>我和文慧的爱情故事</title>
+	
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="./love/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="./love/jquery.js"></script>
+	<script type="text/javascript" src="./love/garden.js"></script>
+    <script type="text/javascript" src="./love/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content" style="width: 1110px; height: 625px; margin-top: 53.5px; margin-left: 245px; ">
+			<div id="code" style="margin-top: 112.5px; ">
+				<span class="comments">/**</span><br>
+				<span class="space"><span class="comments">* 过去我觉得我爱你更多，今天我才发现我对你的爱远远不够.</span><br>
+				<span class="space"><span class="comments">* 我们虽然相爱了7年，但是我一直都没学会怎么好好爱你.</span><br>
+				<span class="space"><span class="comments">* 7年异地恋，我发现自己更多的在追寻理想，对你少了份责任.</span><br>
+				<span class="space"><span class="comments">* 感谢你一直以来对我的包容和无微不至的关心.</span><br>
+				<span class="space"><span class="comments">* 今天我写了如下的代码来表达我对你的爱.</span><br>
+				<span class="space"><span class="comments">*/</span><br>
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"刘辉"</span>);<br>
+				Girl u = <span class="keyword">new</span> Girl(<span class="string">"文慧"</span>);<br>
+				<span class="comments">// 2006年3月5日14:12分, 我向你表白. </span><br>
+				i.love(u);<br>
+				<span class="comments">// 感谢上帝,你答应做我的女朋友.</span><br>
+				u.accepted();<br>
+				<span class="comments">// 从那以后,我每天都在想念你.</span><br>
+				i.miss(u);<br>
+				<span class="comments">// 让我们永远在一起.</span><br></span></span></span></div>
+			<div id="loveHeart">
+				<canvas id="garden" width="670" height="625"></canvas>
+				<div id="words" style="position: absolute; top: 248.5px; left: 755px; ">
+					<div id="messages" style="display: block; ">
+						文慧, I have fallen in love with you for
+						<div id="elapseClock">
+							<span class="digit">874</span> days 
+							<span class="digit">00</span> hours 
+							<span class="digit">38</span> minutes 
+							<span class="digit">24</span> seconds
+						</div>
+					</div>
+					<div id="loveu" style="display: block; ">
+						Love u forever and ever.<br>
+						<div class="signature">- 刘辉</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			Inspired by <a href="http://www.ijibu.com/">Ijibu</a> project.<br>
+			Copyright © 2013 <a href="http://www.ita001.com/">ita001.com</a> 2010-2013
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2006, 3, 5);
+		together.setHours(14);
+		together.setMinutes(12);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+
+
+</body></html>
