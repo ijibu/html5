@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0032)http://js-fireworks.appspot.com/ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>JavaScript Fireworks</title>
+
+    <!-- Load jQuery -->
+    <script type="text/javascript" src="jquery.min.js"></script>
+
+    <!-- Load Canvas support for IE8 and below (IE9 support Canvas) -->
+    <!--[if lt IE 9]><script src="canvas/excanvas.js"></script><![endif]-->
+
+    <!-- jQuery UI is only used for the nice slider controls -->
+    <link type="text/css" href="ui.all.css" rel="stylesheet">
+    <script type="text/javascript" src="jquery-ui.js"></script>
+    <script type="text/javascript" src="ui.slider.js"></script>
+
+    <!-- Load the fireworks script and stylesheet -->
+    <script type="text/javascript" src="fireworks.js"></script>
+    <link type="text/css" href="fireworks.css" rel="stylesheet">
+
+</head>
+<body screen_capture_injected="true">
+
+    <h1>JavaScript Fireworks</h1>
+    <script type="text/javascript">
+        // we need a full screen canvas, but the canvas tag doesn't support percentage widths
+        // so we simply write out the canvas tag using javascript
+        document.write('<div style="background:url(images/background.jpg) repeat-x;position:absolute;left:0;top:'+($(window).height()-193)+'px;width:100%;height:200px;"></div>');
+        document.write('<canvas id="cv" width="'+$(window).width()+'" height="'+($(window).height()-100)+'" style="position:absolute;left:0;top:0;"></canvas>');
+        // obviously, this become wrong if the browser window changes size
+        // so we simply reload the page on resize
+    </script>
+    <div id="message">
+        Number of items on the screen:  <div id="fireCount">0</div>
+        <a href="http://kenneth.kufluk.com/" target="_blank">@ Kenneth Kufluk 2010</a>
+        <a href="http://github.com/kennethkufluk/js-fireworks" target="_blank">My code is open sourced at github.</a>
+    </div>
+    
+    <div id="slider_firework_speed" class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all">
+		<span class="label" style="display:block;margin:10px 20px 10px -50px;">Speed</span>
+		<a href="http://js-fireworks.appspot.com/#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 40%;"></a>
+	</div>
+    <div id="slider_fragment_spread" class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all">
+		<span class="label" style="display:block;margin:10px 20px 10px -50px;">Blast Radius</span>
+		<a href="http://js-fireworks.appspot.com/#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 40%;"></a>
+	</div>
+    <div id="slider_gravity" class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all">
+		<span class="label" style="display:block;margin:10px 20px;">Gravity</span>
+		<a href="http://js-fireworks.appspot.com/#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 50%;"></a>
+	</div>
+    <div id="slider_framerate">
+		<span class="label" style="display:block;margin:20px 20px;">Framerate</span>
+	</div>
+    
+    <div id="form" style="display: block;">
+        <form onsubmit="FireworkDisplay.launchText();return false;">
+            <div>
+                <span class="boxtext">Enter your own message and click Launch to see it written in Fireworks over London</span><br>
+                <input id="firetext" type="text" value="i love you forever">
+                <input id="launch" type="submit" value="Launch!">
+            </div>
+            <div>
+                <span id="sendlink" class="boxtext">Forward:</span>
+				<input type="text" id="url" name="url" />
+            </div>
+        </form>
+    </div>
+	<script type="text/javascript" src="saved_resource"></script>
+</body>
+</html>
