@@ -30,10 +30,12 @@ var myPoint = {
 	x : 0,
 	y : 0
 };
+//Origin:起源，来源，原点
 var myOrigin = {
 	x : 320,
 	y : 479
 };
+//vector:向量
 var vectorOne = {
 	x : 0,
 	y : 0
@@ -45,6 +47,7 @@ var vectorTwo = {
 
 var canvas;
 
+//Enemy:敌人
 var lastEnemyAddedScore = 0;
 var currentEnemyCount = 0;
 var MIN_ENEMY_APPEAR_SCORE = 1000;
@@ -137,6 +140,7 @@ function tick() {
 var endText;
 var scoreMessage;
 var messageStr;
+//显示游戏结束
 function showEndGame() {
 	unloadGameObjects();
 	gameEndFlag = true;
