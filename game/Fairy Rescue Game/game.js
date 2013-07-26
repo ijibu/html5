@@ -22,10 +22,11 @@ var canvasOffset;
 var canvasWrapper;
 var canvasOverlayWrapper;
 var lineGraphics;
+//mouse位置
 var Mouse = {
 	x : 0,
 	y : 0
-}; //mouse
+};
 var myPoint = {
 	x : 0,
 	y : 0
@@ -537,7 +538,12 @@ function checkPlayAgainClick(mousePoint) {
 	}
 }
 
+//游戏暂停标志
 var gameIsPausedFlag = false;
+
+/**
+ * 暂停游戏
+ */
 function pauseGame() {
 	//display game is paused
 	gameIsPausedFlag = true;
@@ -546,15 +552,20 @@ function pauseGame() {
 	stage.update();
 }
 
+/**
+ * 检查是否点击了暂停游戏
+ */
 function checkGamePauseClick(mousePoint) {
-	if ((mousePoint.x >= 594 && mousePoint.x < 627) &&
-		(mousePoint.y >= 12 && mousePoint.y < 43)) {
+	if ((mousePoint.x >= 594 && mousePoint.x < 627) && (mousePoint.y >= 12 && mousePoint.y < 43)) {
 		return (true);
 	} else {
 		return (false);
 	}
 }
 
+/**
+ * 恢复游戏
+ */
 function resumeGame() {
 	gameIsPausedFlag = false;
 	messageStr.x = 180;
@@ -735,7 +746,6 @@ function initSpellShot() {
 }
 
 function addSpellShot(originLocation, mouseLocation) {
-
 	var newLocPoint = {
 		x : 0,
 		y : 0

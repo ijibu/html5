@@ -1,9 +1,9 @@
-/*
+/**
  * fireworks.js - Kenneth Kufluk (http://kenneth.kufluk.com/)
  * http://js-fireworks.appspot.com/
  * MIT (X11) Licensed
 
-Copyright (c) 2010 Kenneth Kufluk
+ * Copyright (c) 2010 Kenneth Kufluk
  *
  */
 $(document).ready(function () {
@@ -21,10 +21,14 @@ $(document).ready(function () {
 	// reload the page when it's resized
 	var resizeTimer = null;
 	$(window).bind('resize', function () {
-		if (document.all)
+		if (document.all) {
 			return;
-		if (resizeTimer)
+		}
+			
+		if (resizeTimer) {
 			clearTimeout(resizeTimer);
+		}
+			
 		resizeTimer = setTimeout("location.reload()", 100);
 	});
 
@@ -97,8 +101,9 @@ FireworkDisplay = {
 		this.ctx.clearRect(0, 0, this.canvaswidth, this.canvasheight);
 		var firecount = 0;
 		for (var i = 0; i < this.fireworks.length; i++) {
-			if (this.fireworks[i] == null)
+			if (this.fireworks[i] == null) {
 				continue;
+			}
 			if (this.fireworks[i].status != this.FIREWORK_EXPLODED) {
 				firecount++;
 			}
