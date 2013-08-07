@@ -7,6 +7,17 @@
  *
  */
 $(document).ready(function () {
+
+	// when firework text is changed, update the tinyurl
+	$('#firetext').blur(function () {
+		FireworkDisplay.getTinyUrl();
+	});
+
+	// focus on the input box
+	try {
+		$('#firetext').get(0).focus();
+	} catch (ignore) {}
+
 	// reload the page when it's resized
 	var resizeTimer = null;
 	$(window).bind('resize', function () {
@@ -20,9 +31,21 @@ $(document).ready(function () {
 			
 		resizeTimer = setTimeout("location.reload()", 100);
 	});
+
+	// finally, all is ready, so kick off the firework display
+	var params = location.search;
+	var message = "";
+	if (params.match('msg=')) {
+		// change the message if set in the page url
+		message = unescape(params.split('?msg=')[1]);
+		$('#firetext').val(message);
+	}
 	FireworkDisplay.launchText();
 
-	//注册速度滑动监听事件
+});
+
+// configure the sliders
+$(document).ready(function () {
 	$("#slider_firework_speed").slider({
 		slide : function (event, ui) {
 			FireworkDisplay.FIREWORK_SPEED = ui.value;
@@ -32,7 +55,6 @@ $(document).ready(function () {
 		step : 0.1,
 		orientation : 'vertical'
 	});
-	
 	$("#slider_fragment_spread").slider({
 		slide : function (event, ui) {
 			FireworkDisplay.FRAGMENT_SPREAD = ui.value;
@@ -57,9 +79,9 @@ FireworkDisplay = {
 	GRAVITY : 5,
 	FRAME_RATE : 30,
 	DEPLOYMENT_RATE : 10,
-	FIREWORK_SPEED : 2,			//烟花的速度
-	DISPERSION_WIDTH : 1,		//色块的宽度
-	DISPERSION_HEIGHT : 2,		//色块的高度
+	FIREWORK_SPEED : 2,
+	DISPERSION_WIDTH : 1,
+	DISPERSION_HEIGHT : 2,
 	FIREWORK_PAYLOAD : 30,
 	FRAGMENT_SPREAD : 8,
 	TEXT_LINE_HEIGHT : 70,
@@ -75,7 +97,6 @@ FireworkDisplay = {
 	fireworks : [],
 	allBlocks : new Array(),
 	gameloop : 0,
-	
 	updateDisplay : function () {
 		this.ctx.clearRect(0, 0, this.canvaswidth, this.canvasheight);
 		var firecount = 0;
@@ -93,7 +114,6 @@ FireworkDisplay = {
 		}
 		$('#fireCount').html(firecount);
 	},
-	
 	addFireworks : function () {
 		if (this.blockPointer >= this.allBlocks.length) {
 			return;
@@ -107,7 +127,6 @@ FireworkDisplay = {
 		this.blockPointer++;
 		setTimeout("FireworkDisplay.addFireworks()", 1000 / this.DEPLOYMENT_RATE);
 	},
-	
 	getTinyUrl : function () {
 		return;
 		var tinypath = "http://js-fireworks.appspot.com?msg=" + escape($('#firetext').val());
@@ -124,7 +143,6 @@ FireworkDisplay = {
 	updateTinyUrl : function (o) {
 		$('#url').val(o.tinyurl);
 	},
-	
 	launchText : function () {
 		this.getTinyUrl();
 

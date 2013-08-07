@@ -1,0 +1,223 @@
+#functions3d {
+	visibility: hidden;
+	position: relative;
+	background-image: url(img/back.png);
+	background-repeat: no-repeat;
+	font-family: Arial;
+	width: 500px;
+	height: 470px;
+	margin-left: 150px;
+}
+#download {
+	padding-top: 450px;
+	width: 500px;
+	text-align: center;
+	font-size: small;
+}
+#content INPUT[type=text] {
+	background-image: url(img/text.png);
+	border: 1px solid #BBB;
+	padding: 1px;
+	color: #333;
+	font-family: arial;
+}
+#container {
+	position: absolute;
+	top: 0;
+	left: 11px;
+	width: 464px;
+	height: 450px;
+	overflow: hidden;
+	font-size: 9pt;
+	color: #444;
+}
+#view1 {
+	margin: 0;
+	padding: 0;
+}
+#view2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	left: 464px;
+	width: 464px;
+}
+#view3 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+#errorBox {
+	position: absolute;
+	font-size: 9pt;
+	top: 25px;
+	left: 210px;
+	cursor: help;
+}
+#errorBox A{
+	color: red;
+	cursor: help;
+}
+#fxy {
+	width: 70px;
+	height: 30px;
+	background-image: url(img/fxy.png);
+	position: absolute;
+	top: 60px;
+	left: 10px;
+	cursor: pointer;	
+}
+#functionInput {
+	position: absolute;
+	top: 65px;
+	left: 85px;
+	width:240px;
+	font-size: 9pt;
+	padding: 2px;
+	padding-left: 4px;
+}
+#functionRender {
+	position: absolute;
+	top: 65px;
+	left: 350px;
+	width: 100px;
+	cursor: pointer;
+}
+#boundaries {
+	position: absolute;
+	top: 100px;
+	left: 320px;
+}
+#boundaries INPUT[type=text] {
+	width: 50px;
+	height: 12px;
+	font-size: 8pt;
+}
+#reset {
+	font-weight: 400;
+	color: #666;
+	cursor: pointer;
+}
+#reset:hover {
+	color: #00F;
+	text-decoration: underline;
+}
+#control {
+	position: absolute;
+	top: 230px;
+	left: 340px;
+}
+#scaleBoxes {
+	display: none;
+}
+#arrow, #arrow2 {
+	position: absolute;
+	top: 375px;
+	left: 410px;
+	background-image: url(img/arrow.png);
+	width: 44px;
+	height: 33px;
+	cursor: pointer;
+}
+#arrow:hover, #arrow2:hover {
+	background-position: 44px 0;
+}
+#preview {
+	position: absolute;
+	 -apple-dashboard-region: dashboard-region(control rectangle 0px 0px 0px 0px);
+	left: 10px;
+	top: 100px;
+	cursor: move;
+}
+#fullview {
+	position: absolute;
+	position: absolute;
+	left: 5px;
+	top: 14px;
+}
+#backButton {
+	position: absolute;
+	left: 380px;
+	top: 25px;
+	cursor: pointer;
+}
+#save {
+	position: absolute;
+	top: 370px;
+	left: 418px;
+	width: 40px;
+	height: 40px;
+	background-image: url(img/save.png);
+	cursor: pointer;
+}
+#save:hover {
+	background-position: 40px 0;
+}
+#view3 H2 {	
+	padding-bottom: 3px;
+	margin-bottom: 4px;
+	border-bottom: 1px solid #000;
+	font-size: 12pt;
+	font-weight: 700;
+}
+#config1 {
+	line-height: 150%;
+	position: absolute;
+	top: 50px;
+	left: 10px;
+	width: 210px;
+}
+#config2 {
+	line-height: 150%;
+	position: absolute;
+	top: 50px;
+	left: 230px;
+	width: 210px;
+}
+#config3 {
+	position: absolute;
+	top: 390px;
+	left: 15px;
+	width: 400px;
+}
+#colourBox {
+	position: absolute;
+	top: 120px;
+	left: 20px;
+}
+#colour {
+	position: absolute;
+	width: 181px;
+	height: 181px;
+	background-image: url(img/colour.png);
+	background-repeat: no-repeat;
+	background-position: 15px 15px;
+}
+#colourDisplay {
+	position: absolute;
+	top: 10px;
+	left: 90px;
+	height: 80px;
+	width: 80px;
+	background-color: red;
+}
+#mark1 {
+	position: absolute;
+	top: 90px;
+	left: 162px;
+	width: 21px;
+	height: 21px;
+	margin-left: -9px;
+	margin-top: -9px;
+	background-image: url(img/mark1.png);
+}
+#ring {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 181px;
+	height: 181px;
+	background-image: url(img/ring.png);
+	-apple-dashboard-region: dashboard-region(control circle 0px 0px 0px 0px);
+}

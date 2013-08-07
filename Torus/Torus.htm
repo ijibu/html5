@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.benjoffe.com/code/games/torus -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="author" content="Ben Joffe">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0, user-scalable=no">
+<meta http-equiv="cleartype" content="on">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Ben Joffe | Torus</title>
+<link rel="stylesheet" type="text/css" href="./main.css">
+<script type="text/javascript" src="./main.js"></script>
+<link rel="stylesheet" type="text/css" href="./torus.css">
+<script src="./torus.js"></script>
+</head>
+<body screen_capture_injected="true" style="visibility: visible;">
+<div id="benjoffe">
+  <h1>Ben Joffe</h1>
+  <div id="intro">
+    <ul id="nav">
+      <li><a href="http://www.benjoffe.com/">Home</a>      </li><li><a href="http://www.benjoffe.com/code">Code</a>      </li><li><a href="http://www.benjoffe.com/contact">Contact</a>    </li></ul>
+    <ul id="networks">
+      <li id="networks-rs"><a target="_blank" href="http://www.benjoffe.com/rss.xml"><span>RSS Feed</span></a>
+      </li><li id="networks-tw"><a target="_blank" href="http://www.twitter.com/benjoffe"><span>Twitter</span></a>
+      </li><li id="networks-li"><a target="_blank" href="http://www.linkedin.com/in/benjoffe"><span>LinkedIn</span></a>
+      </li><li id="networks-gp"><a target="_blank" href="https://plus.google.com/101728156492025477790"><span>Google+</span></a>
+      </li><li id="networks-gh"><a target="_blank" href="https://github.com/benjoffe"><span>GitHub</span></a>
+    </li></ul>
+  </div>
+  <div id="content">
+    
+<div id="loading" style="display: none;"><img src="./loading.gif" alt="" style="width:16px;height:16px;vertical-align:top;"> Loading game...</div>
+<script>
+var PROMOS = [''];
+if (!window.CanvasRenderingContext2D)
+{
+   document.getElementById('loading').innerHTML = 'Your browser doesn\'t support canvas, if you are using IE then the <a href="v1/">older version</a> will likely work.<br>I suggest you download a standards compliant browser such as <a href="http://www.opera.com/">Opera</a>.';
+}
+else
+{
+    document.getElementById('loading').innerHTML = '<img src="img/loading.gif" alt="" style="width:16px;height:16px;vertical-align:top;"> Loading game...';
+}
+</script>
+<div id="container" style="visibility: visible;">
+  <div id="menu" style="display: none;">
+    <div id="menu_area">
+      <div id="screen0">
+        <div id="helpBox">
+        <p><b>How To Play</b><br>
+          Use the arrow keys to guide the falling blocks, spacebar and the up-arrow will rotate the block in opposite directions.
+          Alternatively the keys A,W,S and D can be used as arrow keys for the same purpose.<br><br>
+          When a complete horizontal ring of 15 blocks is occupied by pieces the row will collapse and earn 100 points.
+          If multiple rows are cleared at a time you will earn bonus points.
+        </p>
+        <a href="http://widgets.opera.com/author/Benjamin%20Joffe">More widgets by this author</a>
+        </div>
+        <div id="copy">©2010 <a href="http://www.benjoffe.com/">Benjamin Joffe</a></div>
+        <div id="but_main0" class="but"></div>
+      </div>
+      <div id="screen1">
+        <div id="go1" class="but"></div>
+        <div id="go2" class="nonstick"></div>
+        <div id="go3" class="nonstick"></div>
+        <div id="but_main1" class="but"></div>
+      </div>
+      <div id="screen2">
+        <div id="quote">"The mind petrifies if a <b>circle</b> be drawn around it, and it can hardly be that dogma draws a <b>circle</b> round the mind."<br><span>- George Moore</span></div>
+        <div id="but_play" class="but"></div>
+        <div id="but_settings" class="but"></div>
+        <div id="but_high" class="but"></div>
+        <div id="but_help" class="but"></div>
+      </div>
+      <div id="screen3">
+        <select id="bestType">
+          <option>Traditional</option>
+          <option>Time Attack</option>
+          <option>Garbage</option>
+        </select>
+        <div id="best1"><b>Traditional</b><br>1. Empty (0)<br>2. Empty (0)<br>3. Empty (0)</div>
+        <div id="best2"><b>Time Attack</b><br>1. Empty (0)<br>2. Empty (0)<br>3. Empty (0)</div>
+        <div id="best3"><b>Garbage</b><br>1. Empty (59:59)<br>2. Empty (59:59)<br>3. Empty (59:59)</div>
+        <div id="but_main2" class="but"></div>
+      </div>
+      <div id="screen4">
+        <div id="div_base">
+          <label>Skin:
+          <select id="set_base">
+            <option>Glass</option>
+            <option>Storybook</option>
+          </select>
+          </label>
+        </div>
+        <div id="div_ghost">
+          <label><input id="set_ghost" type="checkbox"> Show ghost</label>
+        </div>
+        <div id="but_main3" class="but"></div>
+      </div>
+    </div>	
+  </div>
+  <div id="out"></div>
+  <div id="playing" style="background-image: url(img/torus/base0.png);">
+    <canvas id="canvas" width="200" height="400" style="opacity: 0;"></canvas>
+    <div id="paused" style="opacity: 1; display: block;">
+      <div id="but_resume" class="but"></div>
+      <div id="but_restart" class="but"></div>
+      <div id="but_quit" class="but"></div>
+    </div>
+    <div id="panel" style="display: block;">
+      <div id="title1" style="display: block;"></div>
+      <div id="title2" style="display: none;"></div>
+      <div id="title3" style="display: none;"></div>
+      <div id="score">19</div>
+      <div id="time">0:51</div>
+      <div id="next" style="background-position: -160px 0px;"></div>
+      <div id="but_pause" class="but"></div>
+    </div>
+    <div id="promo" style="display: block;"></div>
+    <div id="gameover" style="display: none;">
+      <div id="winner">
+        <form id="high_form">
+          You have achieved a high score, please enter your name:<br>
+          <input type="text" id="high_name" maxlength="20"> <input type="submit" value="OK">
+        </form>
+      </div>
+      <div id="newgame">
+        <div id="sorryText"></div>
+        <div id="skull"></div>
+        <div id="but_restart2" class="but"></div>
+        <div id="but_main4" class="but"></div>
+      </div>
+    </div>
+  </div>
+  <div id="close" class="nonstick" style="top: 202px; left: 328px;"></div>
+</div>
+<!--
+<style>
+#gpromo {
+  position: absolute;
+  top: 455px;
+  left: 140px;
+}
+</style>
+<div id="gpromo">
+  <script type="text/javascript">
+  google_ad_client = "ca-pub-6708910800554441";
+  /* Ben Joffe */
+  google_ad_slot = "1530500387";
+  google_ad_width = 468;
+  google_ad_height = 15;
+  </script>
+  <script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+</div>
+-->
+
+  </div>
+  <div id="foot">
+    <p>© 2013 Ben Joffe</p>
+  </div>
+</div>
+
+
+</body></html>

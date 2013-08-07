@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://www.benjoffe.com/code/tools/functions3d -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="author" content="Ben Joffe">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0, user-scalable=no">
+<meta http-equiv="cleartype" content="on">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Functions 3D</title>
+<link rel="stylesheet" type="text/css" href="./main.css">
+<script type="text/javascript" src="./main.js"></script>
+<link rel="stylesheet" type="text/css" href="./functions3d.css">
+<script src="./parse.js"></script>
+<script src="./script.js"></script>
+</head>
+<body>
+<div id="benjoffe">
+  <h1>Ben Joffe</h1>
+  <div id="intro">
+    <ul id="nav">
+      <li><a href="http://www.benjoffe.com/">Home</a>      </li><li><a href="http://www.benjoffe.com/code">Code</a>      </li><li><a href="http://www.benjoffe.com/contact">Contact</a>    </li></ul>
+    <ul id="networks">
+      <li id="networks-rs"><a target="_blank" href="http://www.benjoffe.com/rss.xml"><span>RSS Feed</span></a>
+      </li><li id="networks-tw"><a target="_blank" href="http://www.twitter.com/benjoffe"><span>Twitter</span></a>
+      </li><li id="networks-li"><a target="_blank" href="http://www.linkedin.com/in/benjoffe"><span>LinkedIn</span></a>
+      </li><li id="networks-gp"><a target="_blank" href="https://plus.google.com/101728156492025477790"><span>Google+</span></a>
+      </li><li id="networks-gh"><a target="_blank" href="https://github.com/benjoffe"><span>GitHub</span></a>
+    </li></ul>
+  </div>
+  <div id="content">
+    
+<div id="loading" style="display: none;"><img src="./loading.gif" alt="" style="width:16px;height:16px;vertical-align:top;"> Loading...</div>
+<script type="text/javascript">
+<!--
+    document.getElementById('loading').innerHTML = '<img src="/img/loading.gif" alt="" style="width:16px;height:16px;vertical-align:top;"> Loading...';
+-->
+</script>
+<div id="functions3d" style="visibility: visible;">
+    <div id="container">
+        <div style="width: 1000px; height: 1px;"></div>
+        <div id="view1">
+            <div id="errorBox"></div>
+            <div id="fxy"></div>
+            <input id="functionInput" type="text" value="(1 - x^2 - y^2) ^ (1/2)">
+            <input id="functionRender" type="submit" value="Full Render">
+
+            <table id="boundaries" cellspacing="3">
+                <tbody><tr>
+                    <td></td>
+                    <td colspan="2" style="font-weight: 700;">Boundaries <span id="reset" href="#">(reset)</span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Minimum</td>
+                    <td>Maximum</td>
+                </tr>
+                <tr>
+                    <td>x</td>
+                    <td><input type="text" id="xMin" value="-1" readonly=""></td>
+                    <td><input type="text" id="xMax" value="1" readonly=""></td>
+                </tr>
+                <tr>
+                    <td>y</td>
+                    <td><input type="text" id="yMin" value="-1" readonly=""></td>
+                    <td><input type="text" id="yMax" value="1" readonly=""></td>
+                </tr>
+                <tr>
+                    <td>z</td>
+                    <td><input type="text" id="zMin" value="-1" readonly=""></td>
+                    <td><input type="text" id="zMax" value="1" readonly=""></td>
+                </tr>
+            </tbody></table>
+
+
+            <div id="control">
+                <div style="font-weight: 700; padding-bottom: 5px;">Control</div>
+                <input type="radio" name="dragMode" checked=""> Rotate camera<br>
+                <input type="radio" name="dragMode"> Pan (x,y)<br>
+                <input type="radio" name="dragMode"> Shift (z)<br>
+                <input type="radio" name="dragMode"> Scale<br>
+                <div id="scaleBoxes" style="padding-left: 25px;">
+                    <input type="checkbox" id="scaleBoxX" checked=""> x<br>
+                    <input type="checkbox" id="scaleBoxY" checked=""> y<br>
+                    <input type="checkbox" id="scaleBoxZ" checked=""> z
+                </div>
+            </div>
+        
+            <canvas id="preview" width="300" height="300"></canvas>
+            <div id="arrow"></div>
+            
+        </div>
+
+        <div id="view2">
+            <canvas id="fullview" width="400" height="400"></canvas>
+            <input type="button" id="backButton" value="&lt;&lt; Back">
+            <div id="save"></div>
+        </div>
+
+        <div id="view3">
+            <div id="config1">
+                <h2>Options</h2>
+                <p><label>Surface:
+                <select id="paintType" style="margin-left: 8px;width:130px;">
+                    <option>Single colour</option>
+                    <option>Height spectrum</option>
+                </select>
+                </label>
+                </p>
+            </div>
+            <div id="colourBox">
+                <div id="colourDisplay"></div>
+                <div id="colour"></div>
+                <div id="mark1"></div>
+                <div id="ring"></div>
+            </div>
+            <div id="config2">
+                <h2>Syntax</h2>
+                <p>A function must be written in terms of <b>x</b> and <b>y</b>. The patenthesis: "<b>(</b>" and "<b>)</b>" are used to indicate grouping, as well as to use a function such as <b>sin(x)</b>.</p>
+                <p>A list of functions, operators, variables and constants can be found <a href="http://www.benjoffe.com/code/tools/functions3d/keywords">here</a>.</p>
+                <p>To get started, an assortment of interesting looking surfaces can be found <a href="http://www.benjoffe.com/code/tools/functions3d/examples">here</a>.</p>
+            </div>
+        
+            <div id="config3">© 2008 | <a href="http://www.benjoffe.com/">www.benjoffe.com</a></div>
+            <div id="arrow2"></div>
+        </div>
+    </div>
+</div>
+
+  </div>
+  <div id="foot">
+    <p>© 2013 Ben Joffe</p>
+  </div>
+</div>
+</body>
+</html>
