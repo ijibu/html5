@@ -40,7 +40,7 @@
 				</div>
 				<ul class="categories">
 					<li>
-						<a href="http://websnooker.com/index.php?id=6bc884-f18bfd-605137&host=1#webchat">
+						<a href="http://www.html5.com/game/WebSnooker/index.php?id=6bc884-f18bfd-605137&host=1#webchat">
 							[
 							<strong>
 								I
