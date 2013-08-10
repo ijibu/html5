@@ -17,11 +17,7 @@
 			};
 			if (top !== self) top.location.replace(self.location.href);
 		</script>
-		<script type="text/javascript" src="./js/jquery1.4.2.js"></script>
-		<script type="text/javascript" src="./js/util.js"></script>
-		<script type="text/javascript" src="./js/object.js"></script>
-		<script type="text/javascript" src="./js/network.js"></script>
-		<script type="text/javascript" src="./js/snooker.min.min.js"></script>
+		<script type="text/javascript" src="./js/snooker.min.js"></script>
 		<link class="skin" rel="stylesheet" type="text/css" href="./css/default.css">
 	</head>
 	<body style="overflow-y: scroll; overflow-x: hidden; background-color: rgb(133, 89, 38); background-image: url(./images/light-yellow.jpg);">
