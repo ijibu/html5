@@ -1,11 +1,28 @@
 <?php
 //$ret = array("status" => 1, "received" => 1, "sent" => 1);
 if ($_GET['query'] == 'server' || $_GET['query'] == 'servers') {
+    // $ret = array(
+    //    "count" => array("players" => 0,"servers" => 0),
+    //    "servers" => array()
+    // );
+
     $ret = array(
-       "count" => array("players" => 0,"servers" => 0),
-       "servers" => array()
+       "count" => array("players" => 1,"servers" => 1),
+       "servers" => array(
+            array(
+                "server_id" => "81ee90","server_name" => "room1","host_player" => "hui","client_player" => null,
+                "gamemode" => "snooker","shottime" => "0","password" => 0,"frames" => "1","host_lang" => "zh",
+                "client_lang" => null),
+        )
     );
+
 } else if ($_GET['query'] == 'host'){
+    $ret = array(
+      "server" => array(
+            "id" => "324421-2c09bf-3c4bdd"
+        )
+    );
+} else if($_GET['query'] == 'join') {       //加入游戏，js端由network.ajax("join"  触发。
     $ret = array(
       "server" => array(
             "id" => "324421-2c09bf-3c4bdd"
