@@ -19,8 +19,9 @@ http://www.html5.com/game/WebSnooker/index.php?id=9bf309-4ef1de-861662&host=1
     }
 5.http://websnooker.com/dashboard.php?_=1376097602176&nick=ijibu		(输入昵称:ijibu)
 	{"status":"ok"}
+    后台应该是往数据库里面插入一条记录,存储这个用户.
 6.http://websnooker.com/dashboard.php?_=1376097324538&info=true 	(ajax轮询调用)	
-{"nicks":{"52059455cd33a5.14036807":{"nick":"ijibu","playing":false}},"invited":false}
+    {"nicks":{"52059455cd33a5.14036807":{"nick":"ijibu","playing":false}},"invited":false}
 
 
 点击start game

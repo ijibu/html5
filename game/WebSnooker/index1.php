@@ -18,6 +18,7 @@
 			if (top !== self) top.location.replace(self.location.href);
 		</script>
 		<script type="text/javascript" src="./js/jquery1.4.2.js"></script>
+		<script type="text/javascript" src="./js/config.js"></script>
 		<script type="text/javascript" src="./js/util.js"></script>
 		<script type="text/javascript" src="./js/object.js"></script>
 		<script type="text/javascript" src="./js/network.js"></script>
