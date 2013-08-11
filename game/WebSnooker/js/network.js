@@ -329,7 +329,7 @@ var network = new function() {
 	 * @parm query	查询参数
 	 * @parm callBack	回调函数
 	 */
-	this.ajax = function(query, _104, _105) {
+	this.ajax = function(query, _104, callBack) {
 		var self = this;
 		if (typeof self.vars.practice == "undefined" || query == "host" || query == "join") {
 			$.ajax({
@@ -752,6 +752,7 @@ var network = new function() {
 	this.get_score = function(_11c) {
 		return parseInt($("#players .p" + (_11c + 1) + " .score").text())
 	},
+	//判断是否该我击球
 	this.own_turn = function() {
 		var self = this;
 		if (config.debug) {

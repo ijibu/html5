@@ -12,7 +12,13 @@ if ($_GET['query'] == 'server' || $_GET['query'] == 'servers') {
             array(
                 "server_id" => "81ee90","server_name" => "room1","host_player" => "hui","client_player" => null,
                 "gamemode" => "snooker","shottime" => "0","password" => 0,"frames" => "1","host_lang" => "zh",
-                "client_lang" => null),
+                "client_lang" => null
+			),
+			array(
+                "server_id" => "81ee91","server_name" => "room2","host_player" => "ijibu22","client_player" => null,
+                "gamemode" => "snooker","shottime" => "0","password" => 0,"frames" => "1","host_lang" => "zh",
+                "client_lang" => null
+			),
         )
     );
 
@@ -22,7 +28,7 @@ if ($_GET['query'] == 'server' || $_GET['query'] == 'servers') {
             "id" => "324421-2c09bf-3c4bdd"
         )
     );
-} else if($_GET['query'] == 'join') {       //¼ÓÈëÓÎÏ·£¬js¶ËÓÉnetwork.ajax("join"  ´¥·¢¡£
+} else if($_GET['query'] == 'join') {       //åŠ å…¥æ¸¸æˆï¼Œjsç«¯ç”±network.ajax("join"  è§¦å‘ã€‚
     $ret = array(
       "server" => array(
             "id" => "324421-2c09bf-3c4bdd"
@@ -33,8 +39,15 @@ if ($_GET['query'] == 'server' || $_GET['query'] == 'servers') {
         "status" => 1, "received" => 1, "sent" => 1, "ack" => "1375954421",
         'packets' => array(
             0 => array(
-                "time" => "1475954421",
+                "time" => time() + 10,
                 'data' => array(
+					'client' => 'wenzi',
+					"gamemode" => "snooker",
+					"shottime" => "0",
+					"password" => 0,
+					"frames" => "1",
+					"host_lang" => "zh",
+					"client_lang" => null,
                     "event" => "shoot",
                     "x" => "0.5622127497947318",
                     "y" => "-0.15236583786410068",
@@ -50,7 +63,7 @@ if ($_GET['query'] == 'server' || $_GET['query'] == 'servers') {
 echo json_encode($ret);exit;
 
 /**
- * Ë«ÈËÓÎÏ·¡£
+ * åŒäººæ¸¸æˆã€‚
  * {"status":1,"received":1,"ack":"1375954421","packets":[{"time":"1375954421","data":{"event":"shoot","x":"0.5622127497947318","y":"-0.15236583786410068","player":"52685f","hash":"3aab71d78143afd37916930094901368"}}]}
  */
 
